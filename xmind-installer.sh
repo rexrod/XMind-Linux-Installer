@@ -105,6 +105,12 @@ echo "Post installatin configurations..."
 sed -i "s/\.\.\/workspace/@user\.home\/workspace/g" "$BIN_DIR/XMind.ini"
 sed -i "s/\.\/configuration/@user\.home\/\.configuration/g" "$BIN_DIR/XMind.ini"
 sed -i "s/^\.\./\/opt\/xmind/g" "$BIN_DIR/XMind.ini"
+sed -i "s/\-Dfile\.encoding\=UTF\-8/\-\-add\-modules\=java\.se\.ee/g" "$BIN_DIR/XMind.ini"
+echo '-Dosgi.requiredJavaVersion=1.8
+-Xms256m
+-Xmx1024m
+-Dfile.encoding=UTF-8' >> "$BIN_DIR/XMind.ini"
+
 if [ $? != 0 ]
 then
   status_flag=1
